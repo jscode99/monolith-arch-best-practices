@@ -1,0 +1,7 @@
+/node_modules
+
+# Log files
+all_logs.log
+app_errors.log
+http_logs.log
+info_logs.log
