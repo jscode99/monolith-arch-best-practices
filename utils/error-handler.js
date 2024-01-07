@@ -1,4 +1,4 @@
-const CustomLogger = require("./custom-logger");
+const CustomLogger = require("./customLogger");
 const { STATUS_CODES, AppError } = require("./app-errors");
 
 const logger = new CustomLogger();
@@ -23,6 +23,10 @@ class ErrorLog {
 
 const ErrorHandler = async (err, req, res, next) => {
   const errorLogger = new ErrorLog();
+
+  process.on("uncaughtException", async (error) => {
+    await errorLogger.error(error);
+  });
 
   if (err) {
     await errorLogger.logError(req, err);

@@ -9,7 +9,7 @@ const UserService = require("../services/userService");
 
 // Utils
 const { ValidationError, STATUS_CODES } = require("../utils/app-errors");
-const CustomLogger = require("../utils/custom-logger");
+const CustomLogger = require("../utils/customLogger");
 
 const userService = new UserService();
 const logger = new CustomLogger();
